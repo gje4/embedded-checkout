@@ -1,14 +1,15 @@
 import type { NextApiHandler, NextApiRequest, NextApiResponse } from 'next'
-import {getConfig, BigcommerceConfig} from '@framework/bigcommerce/api'
+// import {getConfig, BigcommerceConfig} from '@framework/bigcommerce/api'
 import isAllowedMethod from '@framework/bigcommerce/api/utils/is-allowed-method'
 import createApiHandler, {BigcommerceApiHandler} from '@framework/bigcommerce/api/utils/create-api-handler'
 import { BigcommerceApiError } from '@framework/bigcommerce/api/utils/errors'
 const METHODS = ['GET']
 const fullCheckout = false
-const embeddedCheckoutApi: BigcommerceApiHandler<any> = async (req, res) => {
+const embeddedCheckoutApi: BigcommerceApiHandler<any> = async (req, res, config) => {
     if (!isAllowedMethod(req, res, METHODS)) return
     const { cookies } = req
-    const config = getConfig()
+    // const config = getConfig()
+    
     const cartId = cookies.bc_cartId
     try {
         if (!cartId) {
