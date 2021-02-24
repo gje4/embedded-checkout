@@ -1,8 +1,8 @@
 import type { NextApiHandler, NextApiRequest, NextApiResponse } from 'next'
-import {getConfig, BigcommerceConfig} from '@bigcommerce/storefront-data-hooks/api'
-import isAllowedMethod from '@bigcommerce/storefront-data-hooks/api/utils/is-allowed-method'
-import createApiHandler, {BigcommerceApiHandler} from '@bigcommerce/storefront-data-hooks/api/utils/create-api-handler'
-import { BigcommerceApiError } from '@bigcommerce/storefront-data-hooks/api/utils/errors'
+import {getConfig, BigcommerceConfig} from '@framework/bigcommerce/api'
+import isAllowedMethod from '@framework/bigcommerce/api/utils/is-allowed-method'
+import createApiHandler, {BigcommerceApiHandler} from '@framework/bigcommerce/api/utils/create-api-handler'
+import { BigcommerceApiError } from '@framework/bigcommerce/api/utils/errors'
 const METHODS = ['GET']
 const fullCheckout = false
 const embeddedCheckoutApi: BigcommerceApiHandler<any> = async (req, res) => {
